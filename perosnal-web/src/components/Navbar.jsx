@@ -3,7 +3,7 @@ import React from 'react';
 const styles = {
   nav: "fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800",
   container: "max-w-6xl mx-auto px-6 py-4 flex justify-between items-center",
-  logo: "text-xl font-bold tracking-tighter text-white hover:text-blue-400 transition-colors",
+  logo: "text-xl font-bold tracking-tighter text-white hover:text-blue-400 transition-colors cursor-pointer", // Added cursor-pointer
   links: "hidden md:flex gap-8 text-sm font-medium text-slate-400",
   link: "hover:text-white transition-colors cursor-pointer",
   cta: "px-4 py-2 text-xs font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition-all"
@@ -13,9 +13,12 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.container}>
-        {/* Your New Name */}
-        <div className={styles.logo}>
-          AS<span className="text-blue-500">.</span>DEV
+        
+        {/* Logo Section */}
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+          <span className={styles.logo}>
+            AS<span className="text-blue-500">.</span>DEV
+          </span>
         </div>
 
         <div className={styles.links}>
@@ -24,7 +27,7 @@ const Navbar = () => {
           <a href="mailto:adam.sramek0704@gmail.com" className={styles.link}>Contact</a>
         </div>
 
-        <a href="/resume.pdf" className={styles.cta}>
+        <a href="/resume.pdf" target="_blank" className={styles.cta}>
           Resume
         </a>
       </div>

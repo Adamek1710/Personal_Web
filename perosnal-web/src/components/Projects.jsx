@@ -17,7 +17,7 @@ const styles = {
   cardBase: "rounded-3xl border border-slate-800 bg-slate-900 transition-all overflow-hidden relative p-6 hover:border-blue-500/50 group flex flex-col",
   featuredCard: "md:col-span-2 md:row-span-2 p-8 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900/20",
   statsCard: "rounded-3xl border border-slate-800 bg-gradient-to-br from-blue-600/20 to-slate-900 p-6 flex flex-col justify-center items-center text-center",
-  calendarCard: "md:col-span-3 rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col items-center overflow-x-auto",
+  calendarCard: "md:col-span-3 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 flex flex-col items-center justify-center overflow-hidden",
 
   // Typography & Elements
   title: "text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors capitalize",
@@ -120,24 +120,25 @@ const Projects = () => {
           <div className={styles.calendarCard}>
             <div className="w-full mb-6 text-left">
               <h4 className="text-white font-bold text-lg">Commit Velocity</h4>
-              <p className="text-slate-500 text-sm">Real-time contribution frequency over the last year</p>
             </div>
-            <GitHubCalendar 
+            <div className="w-full flex justify-center [transform-origin:center] scale-[0.8] sm:scale-100 transition-transform">
+              <GitHubCalendar 
               username={username}
-              colorScheme="dark"
-              blockSize={11}
+              blockSize={12}
               blockMargin={4}
+              colorScheme="dark"
               fontSize={12}
+              responsive={false} 
               theme={{
                 dark: [
-                '#1e293b', // Level 0: Background slate (empty days)
-                '#1e40af', // Level 1: Deep Blue
-                '#3b82f6', // Level 2: Medium Blue
-                '#60a5fa', // Level 3: Light Blue
-                '#93c5fd'  // Level 4: Brightest Blue (max activity)
-                ],
+                  '#1e293b', 
+                  '#1e40af', 
+                  '#3b82f6', 
+                  '#60a5fa', 
+                  '#93c5fd'],
               }}
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
